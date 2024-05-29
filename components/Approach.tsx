@@ -13,9 +13,12 @@ const Approach = () => {
         </h1>
         <div className="my-20 flex flex-col lg:flex-row items-center justify-center gap-4">
             <Card
-                title="Planning & Strategy"
+                title="Planning and Design"
                 icon={<AceternityIcon order="Phase 1"/>}
-                description="Description of the phase 1"
+                description="In this initial phase, I focus on understanding the project
+                  requirements and translating them into a coherent plan and design. Key activities
+                  include requirement gathering, wireframing, prototyping, technology stack selection,
+                  and project planning."
                 >
             <CanvasRevealEffect
                 animationSpeed={5.1}
@@ -23,9 +26,11 @@ const Approach = () => {
             />
             </Card>
             <Card
-                title="Planning & Strategy"
+                title="Development and Implementation"
                 icon={<AceternityIcon order="Phase 2"/>}
-                description="Description of the phase 2"
+                description="This phase involves actual coding and development of the application,
+                  ensuring that the front-end and back-end integrate together. Key activities include
+                  front-end and back-end development, database integration, API development, and version control."
                 >
             <CanvasRevealEffect
                 animationSpeed={3}
@@ -38,9 +43,12 @@ const Approach = () => {
             />
             </Card>
             <Card
-                title="Planning & Strategy"
+                title=" Deployment and Maintenance"
                 icon={<AceternityIcon order="Phase 3"/>}
-                description="Description of the phase 3"
+                description="Ensuring the application is bug-free, deploying it to a live environment,
+                  and maintaining it for performance and is the main goal of this phase.
+                  Key activities include testing, implementing CI/CD pipelines, deploying to cloud platforms,
+                  monitoring, maintenance, and gathering user feedback."
                 >
             <CanvasRevealEffect
                 animationSpeed={3}
