@@ -35,9 +35,14 @@ interface Slug {
 
 export interface BentoInfo extends SanityBody {
     _type: "bento";
-    grid1: Image;
-    techStack: string[];
-    insideScoop: string;
+    id: number;
+    title: string;
+    description: string;
+    className: string;
+    imgClassName: string;
+    titleClassName: string;
+    img: Image;
+    spareImg: Image;
 }
 
 export interface ContactInfo extends SanityBody {

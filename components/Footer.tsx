@@ -2,14 +2,17 @@ import Image from 'next/image'
 import React from 'react'
 import MagicButton from './ui/MagicButton'
 import { FaLocationArrow } from 'react-icons/fa6'
-import { socialMedia } from '@/data'
+import { ContactInfo } from '@/typings'
+import { SocialIcon } from 'react-social-icons'
+import { fetchContact } from '@/utils/fetchContact'
 
-type Props = {}
 
-const Footer = (props: Props) => {
+const Footer = async () => {
+  const contactInfo: ContactInfo[] = await fetchContact();
+  
   return (
     <footer className='w-full md:pt-20 pb-10' id='contact'>
-      <div className='w-full absolute left-0 -bottom-72 min-h-96'>
+      <div className='w-full absolute left-0 -bottom-72 min-h-96 h-auto'>
         <Image
           src='/footer-grid.svg'
           alt='grid'
@@ -42,15 +45,15 @@ const Footer = (props: Props) => {
           Copyright &copy; 2024 Abshir
         </p>
         <div className='flex items-center mt-2 md:mt-0 md:gap-3 gap-6'>
-          {socialMedia.map((profile) => (
-            <div key={profile.id} className='w-10 h-10 cursor-pointer flex justify-center
+          {contactInfo.map((profile) => (
+            <div key={profile._id} className='w-10 h-10 cursor-pointer flex justify-center
             items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-75 bg-black-200 rounded-lg border border-black-300'>
-              <Image  
-                src={profile.img}
-                alt={profile.id.toString()}
-                width={20}
-                height={20}
-              />
+              <SocialIcon
+                url={profile.url}
+                bgColor='transparent'
+                fgColor='white'
+                style={{ height: 35, width: 35 }}
+                />
             </div>
           ))}
         </div>

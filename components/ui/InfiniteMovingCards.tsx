@@ -3,6 +3,8 @@
 import { cn } from "@/utils/cn";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import { urlFor } from "@/sanity"
+import { Image as TypedImage } from '@/typings'
 
 export const InfiniteMovingCards = ({
   items,
@@ -15,6 +17,7 @@ export const InfiniteMovingCards = ({
     quote: string;
     name: string;
     title: string;
+    photo: TypedImage;
   }[];
   direction?: "left" | "right";
   speed?: "fast" | "normal" | "slow";
@@ -108,7 +111,7 @@ export const InfiniteMovingCards = ({
                 <span className="flex flex-col gap-1">
                   <div className="me-3">
                     <Image 
-                      src="/profile.svg"
+                      src={urlFor(item.photo).url()}
                       alt="client"
                       width={50}
                       height={50}

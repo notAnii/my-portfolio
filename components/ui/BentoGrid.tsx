@@ -8,6 +8,8 @@ import { useState } from "react";
 import animationData from "@/data/confetti.json";
 import MagicButton from "./MagicButton";
 import { IoCopyOutline } from "react-icons/io5";
+import { Image as TypeImage} from '@/typings'
+import { urlFor } from "@/sanity"
 
 export const BentoGrid = ({
   className,
@@ -44,10 +46,10 @@ export const BentoGridItem = ({
   header?: React.ReactNode;
   icon?: React.ReactNode;
   id?: number;
-  img?: string;
+  img?: TypeImage;
   imgClassName?: string;
   titleClassName?: string;
-  spareImg?: string;
+  spareImg?: TypeImage;
 }) => {
   const [copied, setCopied] = useState(false);
 
@@ -72,10 +74,10 @@ export const BentoGridItem = ({
         <div className="w-full h-full absolute">
           {img && (
             <Image
-              src={img}
-              alt={img}
-              width={300}
-              height={300}
+              src={urlFor(img).url()}
+              alt={String(img._key)}
+              width={900}
+              height={900}
               className={cn(imgClassName, 'object-cover object-center')}
             />
           )}
@@ -83,8 +85,8 @@ export const BentoGridItem = ({
         <div className={`absolute right-0 -bottom-5 ${id === 5 && "w-full opacity-80"}`}>
           {spareImg && (
             <Image
-              src={spareImg}
-              alt={spareImg}
+              src={urlFor(spareImg).url()}
+              alt={String(spareImg._key)}
               width={300}
               height={300}
               className={'object-cover, object-center w-full h-full'}
@@ -110,7 +112,7 @@ export const BentoGridItem = ({
           { id === 3 && (
             <div className="flex gap-1 lg:gap-5 w-fit absolute -right-3 lg:-right-2">
               <div className="flex flex-col gap-3 lg:gap-8">
-                {['React.js', 'Next.js', 'TailwindCSS',].map
+                {['Next.js', 'Node.js', 'Spring Boot',].map
                   ((item) => (
                     <span key={item} className="py-2 lg:py-4 lg:px-3 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center bg-[#10132E]">
                       {item}
@@ -121,7 +123,7 @@ export const BentoGridItem = ({
 
               <div className="flex flex-col gap-3 lg:gap-8">
                 <span className="py-4 px-3 rounded-lg text-center bg-[#10132E]"/>
-                {['Vue.js', 'AWS', 'MongoDB',].map
+                {['Django', 'AWS', 'MySQL',].map
                   ((item) => (
                     <span key={item} className="py-2 lg:py-4 lg:px-3 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center bg-[#10132E]">
                       {item}

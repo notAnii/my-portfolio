@@ -1,11 +1,14 @@
+import { BentoInfo } from '@/typings';
 import { BentoGrid, BentoGridItem } from './ui/BentoGrid'
-import { gridItems } from '@/data'
+import { fetchBento } from '@/utils/fetchBento';
 
-const Grid = () => {
+const Grid = async () => {
+  const bentoInfo: BentoInfo[] = await fetchBento();
+  
   return (
     <section id="about">
         <BentoGrid>
-            {gridItems.map(({id, title, description, className, img, imgClassName, titleClassName, spareImg}) => (
+            {bentoInfo.map(({id, title, description, className, img, imgClassName, titleClassName, spareImg}) => (
                <BentoGridItem
                 key={id}
                 id={id}
