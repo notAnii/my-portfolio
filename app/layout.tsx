@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./provider";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Inter({ subsets: ["latin"] });
+const gaId = process.env.NEXT_PUBLIC_GA_ID!;
 
 export const metadata: Metadata = {
   title: "Abshir's Portfolio",
@@ -18,18 +20,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <meta name="theme-color" content="#000319"/>
+        <meta name="theme-color" content="#000319" />
       </head>
       <body className={inter.className}>
         <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem
-            disableTransitionOnChange
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
         >
           {children}
         </ThemeProvider>
       </body>
+      <GoogleAnalytics gaId={gaId} />
     </html>
   );
 }
