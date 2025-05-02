@@ -76,6 +76,10 @@
   button {
     @apply active:outline-none;
   }
+  .rich-text-container p:empty {
+    line-height: 1;
+    min-height: 7px;
+  }
 }
 
 @layer utilities {
